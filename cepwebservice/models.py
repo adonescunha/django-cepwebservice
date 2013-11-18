@@ -1,10 +1,21 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+# django-cepwebservice
+# https://github.com/adonescunha/django-cepwebservice
+
+# Licensed under the MIT license:
+# http://www.opensource.org/licenses/mit-license
+# Copyright (c) 2013 Adones Cunha adonescunha@gmail.com
+
 
 import urllib
 import urllib2
 from django.db import models
 from django.utils import simplejson as json
-from cepwebservice.constants import WEBSERVICE_URL
+
+from .constants import WEBSERVICE_URL
+
 
 class Estado(models.Model):
 
@@ -49,6 +60,7 @@ class Bairro(models.Model):
     def __unicode__(self):
         return '%s' % self.nome
 
+
 class Logradouro(models.Model):
 
     bairro = models.ForeignKey(Bairro)
@@ -63,6 +75,7 @@ class Logradouro(models.Model):
 
     def __unicode__(self):
         return '%s, %s' % (self.nome, self.tipo)
+
 
 class CEPManager(models.Manager):
     def fetch_by_cep(self, cep):
