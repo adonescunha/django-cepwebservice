@@ -1,4 +1,4 @@
-# django-cepwebservice [<img src="https://secure.travis-ci.org/adonescunha/django-cepwebservice.png?branch=master">](http://travis-ci.org/adonescunha/django-cepwebservice)[![PyPi version](https://pypip.in/v/django-cepwebservice/badge.png)]
+# django-cepwebservice [<img src="https://secure.travis-ci.org/adonescunha/django-cepwebservice.png?branch=master">](http://travis-ci.org/adonescunha/django-cepwebservice)[PyPi version](https://pypip.in/v/django-cepwebservice/badge.png)
 
 A Django application to consume [CEP WebService](http://republicavirtual.com.br/cep/).
 
