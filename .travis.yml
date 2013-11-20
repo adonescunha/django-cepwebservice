@@ -10,9 +10,8 @@ install:
     # install aptitude packages
     - LDFLAGS=-lm sudo aptitude install -y $(< requirements)
 
-    - sudo apt-get autoremove -y
-
-    - df -h
+    # install python requirements
+    - make setup
 
     # weird travis-ci python paths
     - export PYTHONPATH=$PYTHONPATH:/usr/lib/pymodules/python2.7/
@@ -20,9 +19,14 @@ install:
     - export PYTHONPATH=$PYTHONPATH:/usr/lib/pyshared/python2.7/
     - export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages/
 
-    # install python requirements
-    - make setup
+    # verify requirements were met
+    - INSTALLDIR=$(python -c "import os; import django; print(os.path.dirname(django.__file__))")
 
 script:
+    - export PYTHONPATH=$PYTHONPATH:/usr/lib/pymodules/python2.7/
+    - export PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/dist-packages
+    - export PYTHONPATH=$PYTHONPATH:/usr/lib/pyshared/python2.7/
+    - export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages/
+
     # finally run tests
     - make ci_test
