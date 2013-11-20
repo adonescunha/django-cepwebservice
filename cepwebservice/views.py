@@ -17,7 +17,6 @@ from .models import CEP
 
 
 def service(request):
-    import time
     cep = request.GET.get('q')
 
     if cep and re.match(r'^\d{5}\-\d{3}$', cep):
