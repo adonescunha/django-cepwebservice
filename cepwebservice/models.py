@@ -80,7 +80,6 @@ class Logradouro(models.Model):
 class CEPManager(models.Manager):
     def fetch_by_cep(self, cep):
         try:
-            raise CEP.DoesNotExist
             return self.get(cep=cep)
         except CEP.DoesNotExist:
             return self._fetch_from_webservice(cep)
